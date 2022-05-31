@@ -34,4 +34,4 @@ sudo ip netns e h1 mptcpize run iperf3 -c 12.0.0.2
 - `s` is connected to router `r`.
 - `r` is connected to host `h2` (which hosts the openvpn server)
  
-![topology_diagram](./topology.svg)
+![topology_diagram](./topology.jpeg)
