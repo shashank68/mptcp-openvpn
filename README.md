@@ -5,7 +5,7 @@
 - Tool to convert legacy tcp socket creation to mptcp. Eg: [mptcpd](https://github.com/intel/mptcpd/releases/download/v0.9/mptcpd-0.9.tar.gz) or [use_mptcp](https://github.com/pabeni/mptcp-tools/tree/master/use_mptcp)
 
 ```bash
-sudo apt install iperf3
+sudo apt install iperf3 openvpn
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ sudo ip netns e h2 mptcpize run iperf3 -s
 
 - Client
 ```bash
-sudo ip netns e h1 mptcpize run iperf3 -c 12.0.0.2
+sudo ip netns e h1 mptcpize run iperf3 -c 10.0.0.1
 ```
 
 
