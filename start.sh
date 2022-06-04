@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+# set -x
 
 shopt -s expand_aliases
 alias netex="ip netns exec"
@@ -47,9 +47,3 @@ echo "Ensure that the below entries are present in /etc/iproute2/rt_tables
 102 isp2
 11 vpn1
 12 vpn2"
-
-#default via 11.0.0.1 dev h1_s_a 
-# 10.0.0.1 dev tun1 proto kernel scope link src 10.0.0.11 
-# 10.0.0.1 dev tun2 proto kernel scope link src 10.0.0.12 
-# 11.0.0.0/24 dev h1_s_a proto kernel scope link src 11.0.0.2 
-# 11.0.0.0/24 dev h1_s_b proto kernel scope link src 11.0.0.3 
