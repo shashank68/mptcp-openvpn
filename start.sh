@@ -37,8 +37,19 @@ ip -n h1 route add default dev tun1 table vpn1
 ip -n h1 rule add pref 10 from 10.0.0.12 table vpn2
 ip -n h1 route add default  dev tun2 table vpn2
 
+# Trick mptcp to send packets from 10.0.0.11 & use 10.0.0.12 when subflow is necessary
+ip -n h1 route del 10.0.0.1
+ip -n h1 route del 10.0.0.1
+ip -n h1 r add 10.0.0.1 dev tun1 proto kernel scope link src 10.0.0.11
+
 echo "Ensure that the below entries are present in /etc/iproute2/rt_tables 
 101 isp1
 102 isp2
 11 vpn1
 12 vpn2"
+
+#default via 11.0.0.1 dev h1_s_a 
+# 10.0.0.1 dev tun1 proto kernel scope link src 10.0.0.11 
+# 10.0.0.1 dev tun2 proto kernel scope link src 10.0.0.12 
+# 11.0.0.0/24 dev h1_s_a proto kernel scope link src 11.0.0.2 
+# 11.0.0.0/24 dev h1_s_b proto kernel scope link src 11.0.0.3 
