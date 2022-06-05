@@ -27,8 +27,6 @@ ip -n h2 mptcp limits set subflow 2 add_addr_accepted 2
 
 ip -n h1 mptcp endpoint flush
 ip -n h1 mptcp limits set subflow 2 add_addr_accepted 2
-ip -n h1 mptcp endpoint show
-ip -n h1 route show
 ip -n h1 mptcp endpoint add 10.0.0.12 dev tun2 id 1 subflow
 
 ip -n h1 rule add pref 10 from 10.0.0.11 table vpn1
