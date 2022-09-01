@@ -4,6 +4,12 @@
 shopt -s expand_aliases
 alias netex="ip netns exec"
 
+echo "Ensure that the below entries are present in /etc/iproute2/rt_tables 
+101 isp1
+102 isp2
+11 vpn1
+12 vpn2"
+
 ./setup_topology.sh
 
 # sleep 5
@@ -39,9 +45,3 @@ ip -n h1 route add default  dev tun2 table vpn2
 ip -n h1 route del 10.0.0.1
 ip -n h1 route del 10.0.0.1
 ip -n h1 r add 10.0.0.1 dev tun1 proto kernel scope link src 10.0.0.11
-
-echo "Ensure that the below entries are present in /etc/iproute2/rt_tables 
-101 isp1
-102 isp2
-11 vpn1
-12 vpn2"

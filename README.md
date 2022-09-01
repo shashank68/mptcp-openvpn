@@ -10,6 +10,16 @@ sudo apt install iperf3 openvpn
 
 ## Usage
 
+- Ensure that the below entries are present in `/etc/iproute2/rt_tables` before starting
+
+    ```
+    101 isp1
+    102 isp2
+    11 vpn1
+    12 vpn2
+    ```
+
+
 ```bash
 sudo ./start.sh
 ```
